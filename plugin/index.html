@@ -30,12 +30,6 @@
                 transform: rotate(360deg);
             }
         }
-
-        .ray-id {
-            font-family: monospace;
-            color: #555;
-            font-size: 12px;
-        }
     </style>
 </head>
 
@@ -60,16 +54,12 @@
             </button>
 
             <div class="text-center mt-8 pt-6 border-t border-gray-100 w-full flex flex-col items-center">
-                <p class="ray-id mb-2">Ray ID: <span id="rayId"></span></p>
-                <p class="text-xs text-gray-400">Performance & security by Cloudflare</p>
+                <p class="text-xs text-gray-400">System Security Check</p>
             </div>
         </div>
     </div>
 
     <script>
-        // Generate random Ray ID
-        document.getElementById('rayId').innerText = Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 6);
-
         const verifyBtn = document.getElementById('verifyBtn');
         const humanCheck = document.getElementById('humanCheck');
         const spinner = document.getElementById('spinner');
